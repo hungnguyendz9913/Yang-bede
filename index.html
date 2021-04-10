@@ -7,60 +7,6 @@
 </h1>
 
 <p>
-#include<bits/stdc++.h>
-
-using namespace std;
-
-#define N 10001
-
-int n, m, s, i, ans;
-int d[N], kc[N], f[N];
-vector<int> kq;
-set<int> a[N];
-queue<int> pq;
-
-int main()
-{
-//    freopen("A.inp","r",stdin);
-
-    ios::sync_with_stdio(false);
-    cin.tie(NULL); cout.tie(NULL);
-
-    cin >> n >> m >> s;
-    for (i = 1; i <= m; i++)
-    {
-        int x, y;
-        cin >> x >> y;
-        a[x].insert(y);
-    }
-
-    pq.push(s);
-    d[s] = 1;
-    while ( !pq.empty() )
-    {
-        int u = pq.front();
-        kq.push_back(u);
-        pq.pop();
-
-        for (auto v : a[u])
-        if (d[v] == 0)
-        {
-            d[v] = 1;
-            kc[v] = kc[u]+1;
-            pq.push(v);
-        }
-    }
-
-    f[s] = 1;
-    for (auto u : kq)
-        for (auto v : a[u]) if (kc[v] == kc[u]+1)
-            f[v] = f[v] + f[u];
-
-    for (i = 1; i <= n; i++)
-        if (f[i] > 1) ans++;
-
-    cout << ans;
-    return 0;
-}
+thang dang o trang web nay bi bede
 
 </p>
