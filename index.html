@@ -8,59 +8,59 @@
 
 <p>
 #include<bits/stdc++.h>
-
+<newline>
 using namespace std;
-
+<newline>
 #define N 10001
-
-int n, m, s, i, ans;
-int d[N], kc[N], f[N];
-vector<int> kq;
-set<int> a[N];
-queue<int> pq;
-
-int main()
-{
-//    freopen("A.inp","r",stdin);
-
-    ios::sync_with_stdio(false);
-    cin.tie(NULL); cout.tie(NULL);
-
-    cin >> n >> m >> s;
-    for (i = 1; i <= m; i++)
-    {
-        int x, y;
-        cin >> x >> y;
-        a[x].insert(y);
-    }
-
-    pq.push(s);
-    d[s] = 1;
-    while ( !pq.empty() )
-    {
-        int u = pq.front();
-        kq.push_back(u);
-        pq.pop();
-
-        for (auto v : a[u])
-        if (d[v] == 0)
-        {
-            d[v] = 1;
-            kc[v] = kc[u]+1;
-            pq.push(v);
-        }
-    }
-
-    f[s] = 1;
-    for (auto u : kq)
-        for (auto v : a[u]) if (kc[v] == kc[u]+1)
-            f[v] = f[v] + f[u];
-
-    for (i = 1; i <= n; i++)
-        if (f[i] > 1) ans++;
-
-    cout << ans;
-    return 0;
+<newline>
+int n, m, s, i, ans; <newline>
+int d[N], kc[N], f[N]; <newline>
+vector<int> kq; <newline>
+set<int> a[N]; <newline>
+queue<int> pq; <newline>
+<newline>
+int main() <newline>
+{ <newline>
+//    freopen("A.inp","r",stdin); <newline>
+<newline>
+    ios::sync_with_stdio(false); <newline>
+    cin.tie(NULL); cout.tie(NULL); <newline>
+<newline>
+    cin >> n >> m >> s; <newline>
+    for (i = 1; i <= m; i++) <newline>
+    { <newline>
+        int x, y; <newline>
+        cin >> x >> y; <newline>
+        a[x].insert(y); <newline>
+    } <newline>
+<newline>
+    pq.push(s); <newline>
+    d[s] = 1; <newline>
+    while ( !pq.empty() )  <newline>
+    { <newline>
+        int u = pq.front(); <newline>
+        kq.push_back(u); <newline>
+        pq.pop(); <newline>
+ <newline>
+        for (auto v : a[u]) <newline>
+        if (d[v] == 0) <newline>
+        { <newline>
+            d[v] = 1; <newline>
+            kc[v] = kc[u]+1; <newline>
+            pq.push(v); <newline>
+        } <newline>
+    } <newline>
+ <newline>
+    f[s] = 1; <newline>
+    for (auto u : kq) <newline>
+        for (auto v : a[u]) if (kc[v] == kc[u]+1) <newline>
+            f[v] = f[v] + f[u]; <newline>
+<newline>
+    for (i = 1; i <= n; i++) <newline>
+        if (f[i] > 1) ans++; <newline>
+<newline>
+    cout << ans; <newline>
+    return 0; <newline>
 }
 
 
